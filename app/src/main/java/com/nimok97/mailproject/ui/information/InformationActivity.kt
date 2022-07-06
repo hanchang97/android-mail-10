@@ -22,6 +22,7 @@ class InformationActivity : AppCompatActivity() {
 
         initView()
         setEditText()
+        observeData()
     }
 
     private fun initView() {
@@ -37,6 +38,30 @@ class InformationActivity : AppCompatActivity() {
 
         binding.tilInformationEmail.editText?.doOnTextChanged { inputText, start, before, count ->
             viewModel.checkEmail(inputText.toString())
+        }
+    }
+
+    private fun observeData(){
+        viewModel.isNickNameValid.observe(this){
+            if(it){
+                binding.tilInformationNickname.error = null
+            }
+            else{
+                binding.tilInformationNickname.error = getString(R.string.information_error_nickname)
+            }
+        }
+
+        viewModel.isEmailValid.observe(this){
+            if(it){
+                binding.tilInformationEmail.error = null
+            }
+            else{
+                binding.tilInformationEmail.error = getString(R.string.information_eror_email)
+            }
+        }
+
+        viewModel.isNextPossible.observe(this){
+            binding.btnInformationNext.isEnabled = it
         }
     }
 
