@@ -1,23 +1,38 @@
 package com.nimok97.mailproject.ui.information
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.nimok97.mailproject.R
 import com.nimok97.mailproject.common.PrintLog
 import com.nimok97.mailproject.databinding.ActivityInformationBinding
 
-class InformationActivity: AppCompatActivity() {
+class InformationActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityInformationBinding
+    private val viewModel: InformationViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_information)
 
         PrintLog.printLog("$this / onCreate")
+
+        initView()
+        setEditText()
     }
 
+    private fun initView() {
+        binding.tietInformationNickname.setText(viewModel.nickname)
+        binding.tietInformationEmail.setText(viewModel.email)
+    }
+
+    private fun setEditText(){
+
+    }
+
+    // 생명주기 check
     override fun onStart() {
         super.onStart()
         PrintLog.printLog("$this / onStart")
