@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModel
 
 class InformationViewModel : ViewModel() {
 
-    lateinit var nickname: String
-    lateinit var email: String
+    var nickname: String
+    var email: String
 
     private var isNickNameValid = false
     private var isEmailValid = false
@@ -19,19 +19,21 @@ class InformationViewModel : ViewModel() {
         email = ""
     }
 
-    fun checkNickName(str : String){
+    fun checkNickName(str: String) {
         // 4~12 자리면 유효
+        nickname = str
         isNickNameValid = str.length in 4..12
         checkIsNextPossible()
     }
 
-    fun checkEmail(str: String){
+    fun checkEmail(str: String) {
         // 이메일 형식 유효 검사 로직 추가하기
+        email = str
 
         checkIsNextPossible()
     }
 
-    fun checkIsNextPossible(){
+    fun checkIsNextPossible() {
         _isNextPossible.value = isNickNameValid && isEmailValid
     }
 

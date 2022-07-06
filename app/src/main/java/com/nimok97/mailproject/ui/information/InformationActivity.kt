@@ -3,6 +3,7 @@ package com.nimok97.mailproject.ui.information
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.doOnTextChanged
 import androidx.databinding.DataBindingUtil
 import com.nimok97.mailproject.R
 import com.nimok97.mailproject.common.PrintLog
@@ -29,7 +30,14 @@ class InformationActivity : AppCompatActivity() {
     }
 
     private fun setEditText(){
+        binding.tilInformationNickname.editText?.doOnTextChanged { inputText, start, before, count ->
+            PrintLog.printLog("$this / nickname input : ${inputText}")
+            viewModel.checkNickName(inputText.toString())
+        }
 
+        binding.tilInformationEmail.editText?.doOnTextChanged { inputText, start, before, count ->
+            viewModel.checkEmail(inputText.toString())
+        }
     }
 
     // 생명주기 check
