@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/fragment_primary"
+            android:icon="@drawable/ic_primary"
+            android:title="@string/mail_drawer_primary" />
+        <item
+            android:id="@+id/fragment_social"
+            android:icon="@drawable/ic_social"
+            android:title="@string/mail_drawer_social" />
+        <item
+            android:id="@+id/fragment_promotions"
+            android:icon="@drawable/ic_promotions"
+            android:title="@string/mail_drawer_promotions" />
+    </group>
+</menu>

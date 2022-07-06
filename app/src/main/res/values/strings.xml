@@ -8,4 +8,7 @@
     <string name="information_eror_email">올바르지 않은 이메일 형식입니다.</string>
     <string name="main_tab_mail">Mail</string>
     <string name="main_tab_setting">Setting</string>
+    <string name="mail_drawer_promotions">Promotions</string>
+    <string name="mail_drawer_social">Social</string>
+    <string name="mail_drawer_primary">Primary</string>
 </resources>

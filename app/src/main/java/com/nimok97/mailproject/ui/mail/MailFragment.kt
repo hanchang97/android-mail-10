@@ -31,5 +31,21 @@ class MailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         PrintLog.printLog("$this / onViewCreated")
 
+        setAppBar()
+        setNavView()
+    }
+
+    private fun setAppBar(){
+        binding.contentMail.toolbarMail.setNavigationOnClickListener{
+            binding.drawerLayout.open()
+        }
+    }
+
+    private fun setNavView(){
+        binding.navViewMail.setNavigationItemSelectedListener{ menuItem ->
+            menuItem.isChecked = true
+            binding.drawerLayout.close()
+            true
+        }
     }
 }
