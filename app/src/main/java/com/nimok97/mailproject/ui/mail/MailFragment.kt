@@ -50,6 +50,8 @@ class MailFragment : Fragment(), SaveBottomNavigationTab {
     }
 
     private fun setNavView(){
+        binding.navViewMail.menu.findItem(R.id.fragment_primary).isChecked = true
+
         binding.navViewMail.setNavigationItemSelectedListener{ menuItem ->
             menuItem.isChecked = true
             binding.drawerLayout.close()
