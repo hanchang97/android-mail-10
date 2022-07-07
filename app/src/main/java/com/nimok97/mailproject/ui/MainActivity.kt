@@ -79,10 +79,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if (binding.bottomNavigationViewMain.selectedItemId == R.id.fragment_search) {
+        if (binding.bottomNavigationViewMain.selectedItemId == R.id.fragment_search) { // 현재 탭이 Setting
             binding.bottomNavigationViewMain.selectedItemId = R.id.fragment_mail
-        } else {
-            super.onBackPressed()
+        } else { // 현재 탭이 Mail
+            mailFragment?.let{
+                PrintLog.printLog("${it.childFragmentManager.backStackEntryCount}")
+
+                if(it.childFragmentManager.backStackEntryCount >= 1){
+                    it.backToPrimary()
+                }
+                else{
+                    super.onBackPressed()
+                }
+            }
         }
 
         // super.onBackPressed()
