@@ -8,11 +8,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.nimok97.mailproject.R
 import com.nimok97.mailproject.common.PrintLog
-import com.nimok97.mailproject.databinding.FragmentPrimaryBinding
+import com.nimok97.mailproject.databinding.FragmentPromotionsBinding
+import com.nimok97.mailproject.databinding.FragmentTestBinding
 
-class PrimaryFragment : Fragment() {
+class TestFragment: Fragment() {
 
-    private lateinit var binding: FragmentPrimaryBinding
+    private lateinit var binding: FragmentTestBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -20,7 +21,7 @@ class PrimaryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         PrintLog.printLog("$this / onCreateView")
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_primary, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_test, container, false)
         return binding.root
     }
 

@@ -16,5 +16,9 @@
             android:id="@+id/fragment_promotions"
             android:icon="@drawable/ic_promotions"
             android:title="@string/mail_drawer_promotions" />
+        <item
+            android:id="@+id/fragment_test"
+            android:icon="@drawable/ic_launcher_foreground"
+            android:title="Test" />
     </group>
 </menu>

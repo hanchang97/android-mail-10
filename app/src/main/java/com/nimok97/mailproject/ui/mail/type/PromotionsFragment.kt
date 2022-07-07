@@ -32,4 +32,14 @@ class PromotionsFragment : Fragment() {
 
 
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        PrintLog.printLog("$this / onDestroyView")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        PrintLog.printLog("$this / onDestroy")
+    }
 }
