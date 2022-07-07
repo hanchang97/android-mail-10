@@ -11,7 +11,6 @@ import com.nimok97.mailproject.data.repository.MailDataSource
 import com.nimok97.mailproject.data.repository.MailRepository
 import com.nimok97.mailproject.ui.util.MailFragmentType
 import kotlinx.coroutines.launch
-import java.util.ArrayList
 
 // TODO - repository, datasource di
 class MailViewModel(private val mailRepository: MailRepository = MailRepository(MailDataSource())) :

@@ -11,9 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.nimok97.mailproject.R
 import com.nimok97.mailproject.common.PrintLog
 import com.nimok97.mailproject.data.model.MailType
-import com.nimok97.mailproject.databinding.FragmentPrimaryBinding
 import com.nimok97.mailproject.databinding.FragmentPromotionsBinding
-import com.nimok97.mailproject.databinding.FragmentSocialBinding
 import com.nimok97.mailproject.ui.mail.MailViewModel
 import com.nimok97.mailproject.ui.mail.adapter.MailRecyclerViewAdpater
 import com.nimok97.mailproject.ui.util.MailFragmentType

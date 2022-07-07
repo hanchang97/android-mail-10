@@ -8,11 +8,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.nimok97.mailproject.R
-import com.nimok97.mailproject.ui.util.BottomNavigationFragmentType
 import com.nimok97.mailproject.common.PrintLog
-import com.nimok97.mailproject.ui.util.BottomNavigationFragmentTypeService
 import com.nimok97.mailproject.databinding.FragmentSettingBinding
 import com.nimok97.mailproject.ui.MainViewModel
+import com.nimok97.mailproject.ui.util.BottomNavigationFragmentType
+import com.nimok97.mailproject.ui.util.BottomNavigationFragmentTypeService
 
 class SettingFragment : Fragment(), BottomNavigationFragmentTypeService {
 

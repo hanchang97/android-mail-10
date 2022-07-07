@@ -1,12 +1,7 @@
 package com.nimok97.mailproject.ui.information
 
-import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
-import android.util.DisplayMetrics
-import android.view.WindowInsets
-import android.view.WindowManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
@@ -28,27 +23,10 @@ class InformationActivity : AppCompatActivity() {
 
         PrintLog.printLog("$this / onCreate")
 
-        val width = getScreenWidth(this)
-        PrintLog.printLog("width / $width")
-
         initView()
         setEditText()
         observeData()
         setNextBtn()
-    }
-
-    fun getScreenWidth(context: Context): Int {
-        val wm = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            val windowMetrics = wm.currentWindowMetrics
-            val insets = windowMetrics.windowInsets
-                .getInsetsIgnoringVisibility(WindowInsets.Type.systemBars())
-            windowMetrics.bounds.width() - insets.left - insets.right
-        } else {
-            val displayMetrics = DisplayMetrics()
-            wm.defaultDisplay.getMetrics(displayMetrics)
-            displayMetrics.widthPixels
-        }
     }
 
     private fun initView() {
