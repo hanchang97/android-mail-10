@@ -1,6 +1,5 @@
 package com.nimok97.mailproject.ui.information
 
-import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,7 +7,7 @@ import java.util.regex.Pattern
 
 class InformationViewModel : ViewModel() {
 
-    var nickname: String
+    var nickName: String
     var email: String
 
     private val _isNickNameValid = MutableLiveData<Boolean>()
@@ -19,18 +18,17 @@ class InformationViewModel : ViewModel() {
     val isNextPossible: LiveData<Boolean> = _isNextPossible
 
     init {
-        nickname = ""
+        nickName = ""
         email = ""
     }
 
     fun checkNickName(str: String) {
         // 4~12 자리면 유효
-        nickname = str
+        nickName = str
 
         val nickNamePattern = "^(?=.*[A-Za-z])(?=.*[0-9])[A-Za-z[0-9]]{4,12}$" // 영문, 숫자
-        val pattern = Pattern.compile(nickNamePattern)
 
-        _isNickNameValid.value = Pattern.matches(nickNamePattern, nickname)
+        _isNickNameValid.value = Pattern.matches(nickNamePattern, nickName)
         checkIsNextPossible()
     }
 

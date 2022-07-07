@@ -1,5 +1,6 @@
 package com.nimok97.mailproject.ui.information
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -7,7 +8,9 @@ import androidx.core.widget.doOnTextChanged
 import androidx.databinding.DataBindingUtil
 import com.nimok97.mailproject.R
 import com.nimok97.mailproject.common.PrintLog
+import com.nimok97.mailproject.data.Information
 import com.nimok97.mailproject.databinding.ActivityInformationBinding
+import com.nimok97.mailproject.ui.MainActivity
 
 class InformationActivity : AppCompatActivity() {
 
@@ -23,10 +26,11 @@ class InformationActivity : AppCompatActivity() {
         initView()
         setEditText()
         observeData()
+        setNextBtn()
     }
 
     private fun initView() {
-        binding.tietInformationNickname.setText(viewModel.nickname)
+        binding.tietInformationNickname.setText(viewModel.nickName)
         binding.tietInformationEmail.setText(viewModel.email)
     }
 
@@ -62,6 +66,15 @@ class InformationActivity : AppCompatActivity() {
 
         viewModel.isNextPossible.observe(this){
             binding.btnInformationNext.isEnabled = it
+        }
+    }
+
+    private fun setNextBtn(){
+        binding.btnInformationNext.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("information", Information(viewModel.nickName, viewModel.email))
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
         }
     }
 
