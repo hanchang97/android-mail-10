@@ -8,11 +8,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.nimok97.mailproject.R
+import com.nimok97.mailproject.common.BottomNavigaionFragment
 import com.nimok97.mailproject.common.PrintLog
+import com.nimok97.mailproject.common.SaveBottomNavigationTab
 import com.nimok97.mailproject.databinding.FragmentMailBinding
 import com.nimok97.mailproject.ui.MainViewModel
 
-class MailFragment : Fragment() {
+class MailFragment : Fragment(), SaveBottomNavigationTab {
 
     private lateinit var binding : FragmentMailBinding
     private val viewModel : MainViewModel by activityViewModels()
@@ -31,8 +33,14 @@ class MailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         PrintLog.printLog("$this / onViewCreated")
 
+        updateCurrentTab()
+
         setAppBar()
         setNavView()
+    }
+
+    override fun updateCurrentTab() {
+        viewModel.updateCurrentTab(BottomNavigaionFragment.MAIL)
     }
 
     private fun setAppBar(){
