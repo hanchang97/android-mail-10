@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import com.nimok97.mailproject.R
-import com.nimok97.mailproject.ui.util.BottomNavigaionFragmentType
+import com.nimok97.mailproject.ui.util.BottomNavigationFragmentType
 import com.nimok97.mailproject.common.PrintLog
 import com.nimok97.mailproject.ui.util.BottomNavigationFragmentTypeService
 import com.nimok97.mailproject.databinding.FragmentMailBinding
@@ -54,7 +54,7 @@ class MailFragment : Fragment(), BottomNavigationFragmentTypeService {
     }
 
     override fun updateCurrentBottomNavigationFragmentType() {
-        mainViewModel.updateCurrentBottomNavigationFragmentType(BottomNavigaionFragmentType.MAIL)
+        mainViewModel.updateCurrentBottomNavigationFragmentType(BottomNavigationFragmentType.MAIL)
     }
 
     private fun setAppBar() {

@@ -1,6 +1,6 @@
 package com.nimok97.mailproject.ui.util
 
-enum class BottomNavigaionFragmentType {
+enum class BottomNavigationFragmentType {
     MAIL,
     SETTING
 }

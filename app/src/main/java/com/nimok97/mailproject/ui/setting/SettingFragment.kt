@@ -8,7 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.nimok97.mailproject.R
-import com.nimok97.mailproject.ui.util.BottomNavigaionFragmentType
+import com.nimok97.mailproject.ui.util.BottomNavigationFragmentType
 import com.nimok97.mailproject.common.PrintLog
 import com.nimok97.mailproject.ui.util.BottomNavigationFragmentTypeService
 import com.nimok97.mailproject.databinding.FragmentSettingBinding
@@ -16,8 +16,8 @@ import com.nimok97.mailproject.ui.MainViewModel
 
 class SettingFragment : Fragment(), BottomNavigationFragmentTypeService {
 
-    private lateinit var binding : FragmentSettingBinding
-    private val viewModel : MainViewModel by activityViewModels()
+    private lateinit var binding: FragmentSettingBinding
+    private val viewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,10 +35,15 @@ class SettingFragment : Fragment(), BottomNavigationFragmentTypeService {
 
         updateCurrentBottomNavigationFragmentType()
 
-
+        initView()
     }
 
     override fun updateCurrentBottomNavigationFragmentType() {
-        viewModel.updateCurrentBottomNavigationFragmentType(BottomNavigaionFragmentType.SETTING)
+        viewModel.updateCurrentBottomNavigationFragmentType(BottomNavigationFragmentType.SETTING)
+    }
+
+    private fun initView() {
+        binding.editTextNickname.setText(viewModel.information.nickName)
+        binding.editTextEmail.setText(viewModel.information.email)
     }
 }
