@@ -72,25 +72,13 @@ class MailFragment : Fragment(), SaveBottomNavigationTab {
                     changeFragment(primaryFragment)
                 }
                 R.id.fragment_social -> {
-                    childFragmentManager.popBackStackImmediate("Social", FragmentManager.POP_BACK_STACK_INCLUSIVE)
-                    childFragmentManager.beginTransaction()
-                        .replace(R.id.fragmentContainerView_mail, socialFragment, "Social")
-                        .addToBackStack("Social")
-                        .commit()
+                    changeFragmentExceptPrimary("Social", socialFragment)
                 }
                 R.id.fragment_promotions -> {
-                    childFragmentManager.popBackStackImmediate("Promotions", FragmentManager.POP_BACK_STACK_INCLUSIVE)
-                    childFragmentManager.beginTransaction()
-                        .replace(R.id.fragmentContainerView_mail, promotionsFragment, "Promotions")
-                        .addToBackStack("Promotions")
-                        .commit()
+                    changeFragmentExceptPrimary("Promotions", promotionsFragment)
                 }
                 R.id.fragment_test -> {
-                    childFragmentManager.popBackStackImmediate("Test", FragmentManager.POP_BACK_STACK_INCLUSIVE)
-                    childFragmentManager.beginTransaction()
-                        .replace(R.id.fragmentContainerView_mail, testFragment, "Test")
-                        .addToBackStack("Test")
-                        .commit()
+                    changeFragmentExceptPrimary("Test", testFragment)
                 }
             }
             binding.drawerLayout.close()
@@ -106,6 +94,14 @@ class MailFragment : Fragment(), SaveBottomNavigationTab {
 
     private fun changeFragment(fragment: Fragment) {
         childFragmentManager.beginTransaction().replace(R.id.fragmentContainerView_mail, fragment)
+            .commit()
+    }
+
+    private fun changeFragmentExceptPrimary(name: String, fragment: Fragment){
+        childFragmentManager.popBackStackImmediate(name, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        childFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainerView_mail, fragment, name)
+            .addToBackStack(name)
             .commit()
     }
 
