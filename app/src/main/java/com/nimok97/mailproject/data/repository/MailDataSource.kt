@@ -2,8 +2,9 @@ package com.nimok97.mailproject.data.repository
 
 import com.nimok97.mailproject.data.model.Mail
 import com.nimok97.mailproject.data.model.MailType
+import javax.inject.Inject
 
-class MailDataSource {
+class MailDataSource @Inject constructor(){
     private val dataList = listOf(
         Mail(1, "Google", "보안 알림", "Android에서 새로 로그인함", "2022-07-07", MailType.PRIMARY),
         Mail(2, "David", "Hello", "Hi, ChangHee", "2022-07-04", MailType.PROMOTIONS),

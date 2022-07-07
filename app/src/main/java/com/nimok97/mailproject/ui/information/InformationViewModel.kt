@@ -3,9 +3,12 @@ package com.nimok97.mailproject.ui.information
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import java.util.regex.Pattern
+import javax.inject.Inject
 
-class InformationViewModel : ViewModel() {
+@HiltViewModel
+class InformationViewModel @Inject constructor() : ViewModel() {
 
     var nickName: String
     var email: String

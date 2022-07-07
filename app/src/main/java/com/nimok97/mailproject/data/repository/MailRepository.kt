@@ -1,5 +1,7 @@
 package com.nimok97.mailproject.data.repository
 
-class MailRepository(private val mailDataSource: MailDataSource) {
+import javax.inject.Inject
+
+class MailRepository @Inject constructor(private val mailDataSource: MailDataSource) {
     fun getMailData() = mailDataSource.getMailData()
 }

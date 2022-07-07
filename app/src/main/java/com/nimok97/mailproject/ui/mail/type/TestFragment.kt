@@ -13,7 +13,9 @@ import com.nimok97.mailproject.databinding.FragmentTestBinding
 import com.nimok97.mailproject.ui.mail.MailViewModel
 import com.nimok97.mailproject.ui.util.MailFragmentType
 import com.nimok97.mailproject.ui.util.MailFragmentTypeService
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class TestFragment: Fragment(), MailFragmentTypeService {
 
     private lateinit var binding: FragmentTestBinding
