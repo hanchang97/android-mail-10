@@ -11,4 +11,7 @@
     <string name="mail_drawer_promotions">Promotions</string>
     <string name="mail_drawer_social">Social</string>
     <string name="mail_drawer_primary">Primary</string>
+    <string name="promotions_description">Promotions</string>
+    <string name="primary_description">Primary</string>
+    <string name="social_description">Social</string>
 </resources>

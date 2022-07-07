@@ -26,7 +26,7 @@ class InformationViewModel : ViewModel() {
         // 4~12 자리면 유효
         nickName = str
 
-        val nickNamePattern = "^(?=.*[A-Za-z])(?=.*[0-9])[A-Za-z[0-9]]{4,12}$" // 영문, 숫자
+        val nickNamePattern = "^(?=.*[A-Za-z])(?=.*[0-9])[A-Za-z[0-9]]{4,12}$" // 영문, 숫자 + 4~12자리
 
         _isNickNameValid.value = Pattern.matches(nickNamePattern, nickName)
         checkIsNextPossible()

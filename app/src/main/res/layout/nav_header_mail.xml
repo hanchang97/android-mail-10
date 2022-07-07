@@ -12,7 +12,8 @@
         android:layout_height="match_parent"
         android:text="W mail"
         android:autoSizeTextType="uniform"
-        android:padding="15dp"/>
+        android:layout_marginTop="10dp"
+        android:padding="20dp"/>
 
 
 </LinearLayout>
