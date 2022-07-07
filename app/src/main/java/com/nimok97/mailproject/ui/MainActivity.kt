@@ -31,13 +31,22 @@ class MainActivity : AppCompatActivity() {
         viewModel.information = information
 
         setBottomNavigationView()
+        setNavigationRailView()
         initView()
     }
 
     private fun initView() {
-        when(viewModel.bottonNavigaionFragment){
-            BottomNavigationFragmentType.MAIL -> changeFragment(mailFragment)
-            BottomNavigationFragmentType.SETTING -> changeFragment(settingFragment)
+        when (viewModel.bottonNavigaionFragment) {
+            BottomNavigationFragmentType.MAIL -> {
+                changeFragment(mailFragment)
+                binding.bottomNavigationViewMain?.menu?.getItem(0)?.isChecked = true
+                binding.navigationRailViewMain?.menu?.getItem(0)?.isChecked = true
+            }
+            BottomNavigationFragmentType.SETTING -> {
+                changeFragment(settingFragment)
+                binding.bottomNavigationViewMain?.menu?.getItem(1)?.isChecked = true
+                binding.navigationRailViewMain?.menu?.getItem(1)?.isChecked = true
+            }
         }
 
 //        changeFragment(mailFragment)
@@ -48,7 +57,29 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setBottomNavigationView() {
-        binding.bottomNavigationViewMain.run {
+        binding.bottomNavigationViewMain?.run {
+            setOnItemSelectedListener {
+                when (it.itemId) {
+                    R.id.fragment_mail -> {
+                        clearBackStack()
+                        changeFragment(mailFragment)
+                    }
+                    R.id.fragment_search -> {
+                        //changeFragment(settingFragment)
+                        //clearBackStack()
+                        supportFragmentManager.beginTransaction()
+                            .replace(R.id.fragmentContainerView_main, settingFragment, "Setting")
+                            .addToBackStack("Setting")
+                            .commit()
+                    }
+                }
+                true
+            }
+        }
+    }
+
+    private fun setNavigationRailView(){
+        binding.navigationRailViewMain?.run {
             setOnItemSelectedListener {
                 when (it.itemId) {
                     R.id.fragment_mail -> {
@@ -79,17 +110,34 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if (binding.bottomNavigationViewMain.selectedItemId == R.id.fragment_search) { // 현재 탭이 Setting
-            binding.bottomNavigationViewMain.selectedItemId = R.id.fragment_mail
-        } else { // 현재 탭이 Mail
-            mailFragment?.let{
-                PrintLog.printLog("${it.childFragmentManager.backStackEntryCount}")
+        binding.bottomNavigationViewMain?.let {
+            if (binding.bottomNavigationViewMain?.selectedItemId == R.id.fragment_search) { // 현재 탭이 Setting
+                binding.bottomNavigationViewMain?.selectedItemId = R.id.fragment_mail
+            } else { // 현재 탭이 Mail
+                mailFragment?.let {
+                    PrintLog.printLog("${it.childFragmentManager.backStackEntryCount}")
 
-                if(it.childFragmentManager.backStackEntryCount >= 1){
-                    it.backToPrimary()
+                    if (it.childFragmentManager.backStackEntryCount >= 1) {
+                        it.backToPrimary()
+                    } else {
+                        super.onBackPressed()
+                    }
                 }
-                else{
-                    super.onBackPressed()
+            }
+        }
+
+        binding.navigationRailViewMain?.let {
+            if (binding.navigationRailViewMain?.selectedItemId == R.id.fragment_search) { // 현재 탭이 Setting
+                binding.navigationRailViewMain?.selectedItemId = R.id.fragment_mail
+            } else { // 현재 탭이 Mail
+                mailFragment?.let {
+                    PrintLog.printLog("${it.childFragmentManager.backStackEntryCount}")
+
+                    if (it.childFragmentManager.backStackEntryCount >= 1) {
+                        it.backToPrimary()
+                    } else {
+                        super.onBackPressed()
+                    }
                 }
             }
         }
