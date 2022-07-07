@@ -7,7 +7,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.nimok97.mailproject.R
-import com.nimok97.mailproject.common.BottomNavigaionFragment
+import com.nimok97.mailproject.ui.util.BottomNavigaionFragmentType
 import com.nimok97.mailproject.common.PrintLog
 import com.nimok97.mailproject.data.Information
 import com.nimok97.mailproject.databinding.ActivityMainBinding
@@ -36,8 +36,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun initView() {
         when(viewModel.bottonNavigaionFragment){
-            BottomNavigaionFragment.MAIL -> changeFragment(mailFragment)
-            BottomNavigaionFragment.SETTING -> changeFragment(settingFragment)
+            BottomNavigaionFragmentType.MAIL -> changeFragment(mailFragment)
+            BottomNavigaionFragmentType.SETTING -> changeFragment(settingFragment)
         }
 
 //        changeFragment(mailFragment)

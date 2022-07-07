@@ -6,14 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.nimok97.mailproject.R
 import com.nimok97.mailproject.common.PrintLog
-import com.nimok97.mailproject.databinding.FragmentPromotionsBinding
 import com.nimok97.mailproject.databinding.FragmentTestBinding
+import com.nimok97.mailproject.ui.mail.MailViewModel
+import com.nimok97.mailproject.ui.util.MailFragmentType
+import com.nimok97.mailproject.ui.util.MailFragmentTypeService
 
-class TestFragment: Fragment() {
+class TestFragment: Fragment(), MailFragmentTypeService {
 
     private lateinit var binding: FragmentTestBinding
+    private val mailViewModel: MailViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,7 +33,12 @@ class TestFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         PrintLog.printLog("$this / onViewCreated")
 
+        updateCurrentMailType()
 
+    }
+
+    override fun updateCurrentMailType() {
+        mailViewModel.updateCurrentMailType(MailFragmentType.TEST)
     }
 
     override fun onDestroyView() {

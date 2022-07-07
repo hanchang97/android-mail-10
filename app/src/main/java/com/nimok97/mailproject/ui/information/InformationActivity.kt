@@ -69,7 +69,7 @@ class InformationActivity : AppCompatActivity() {
         }
     }
 
-    private fun setNextBtn(){
+    private fun setNextBtn(){ // finish 로도 가능
         binding.btnInformationNext.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             intent.putExtra("information", Information(viewModel.nickName, viewModel.email))

@@ -9,21 +9,21 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import com.nimok97.mailproject.R
-import com.nimok97.mailproject.common.BottomNavigaionFragment
+import com.nimok97.mailproject.ui.util.BottomNavigaionFragmentType
 import com.nimok97.mailproject.common.PrintLog
-import com.nimok97.mailproject.common.SaveBottomNavigationTab
+import com.nimok97.mailproject.ui.util.BottomNavigationFragmentTypeService
 import com.nimok97.mailproject.databinding.FragmentMailBinding
 import com.nimok97.mailproject.ui.MainViewModel
 import com.nimok97.mailproject.ui.mail.type.PrimaryFragment
 import com.nimok97.mailproject.ui.mail.type.PromotionsFragment
 import com.nimok97.mailproject.ui.mail.type.SocialFragment
 import com.nimok97.mailproject.ui.mail.type.TestFragment
-import com.nimok97.mailproject.ui.setting.SettingFragment
+import com.nimok97.mailproject.ui.util.MailFragmentType
 
-class MailFragment : Fragment(), SaveBottomNavigationTab {
+class MailFragment : Fragment(), BottomNavigationFragmentTypeService {
 
     private lateinit var binding: FragmentMailBinding
-    private val viewModel: MainViewModel by activityViewModels()
+    private val mainViewModel: MainViewModel by activityViewModels()
     private val mailViewModel: MailViewModel by activityViewModels()
 
     private val primaryFragment by lazy { PrimaryFragment() }
@@ -45,15 +45,15 @@ class MailFragment : Fragment(), SaveBottomNavigationTab {
         super.onViewCreated(view, savedInstanceState)
         PrintLog.printLog("$this / onViewCreated")
 
-        updateCurrentTab()
+        updateCurrentBottomNavigationFragmentType()
 
         setAppBar()
         setNavView()
-        changeFragment(primaryFragment)
+        initView()
     }
 
-    override fun updateCurrentTab() {
-        viewModel.updateCurrentTab(BottomNavigaionFragment.MAIL)
+    override fun updateCurrentBottomNavigationFragmentType() {
+        mainViewModel.updateCurrentBottomNavigationFragmentType(BottomNavigaionFragmentType.MAIL)
     }
 
     private fun setAppBar() {
@@ -84,6 +84,27 @@ class MailFragment : Fragment(), SaveBottomNavigationTab {
             }
             binding.drawerLayout.close()
             true
+        }
+    }
+
+    private fun initView() {
+        clearBackStack()
+        changeFragment(primaryFragment)
+        PrintLog.printLog("MailFragment / ${mailViewModel.mailTypeFragment}")
+        when (mailViewModel.mailTypeFragment) {
+            MailFragmentType.SOCIAL -> {
+                binding.navViewMail.menu.findItem(R.id.fragment_social).isChecked = true
+                changeFragmentExceptPrimary("Social", socialFragment)
+            }
+            MailFragmentType.PROMOTIONS -> {
+                binding.navViewMail.menu.findItem(R.id.fragment_promotions).isChecked = true
+                changeFragmentExceptPrimary("Promotions", promotionsFragment)
+            }
+            MailFragmentType.TEST -> {
+                binding.navViewMail.menu.findItem(R.id.fragment_test).isChecked = true
+                changeFragmentExceptPrimary("Test", testFragment)
+            }
+            else -> {}
         }
     }
 
