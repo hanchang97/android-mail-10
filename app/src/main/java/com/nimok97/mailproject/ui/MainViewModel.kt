@@ -1,19 +1,19 @@
 package com.nimok97.mailproject.ui
 
 import androidx.lifecycle.ViewModel
-import com.nimok97.mailproject.ui.util.BottomNavigaionFragmentType
+import com.nimok97.mailproject.ui.util.BottomNavigationFragmentType
 import com.nimok97.mailproject.data.model.Information
 
 class MainViewModel : ViewModel() {
 
     lateinit var information : Information
-    var bottonNavigaionFragment : BottomNavigaionFragmentType
+    var bottonNavigaionFragment : BottomNavigationFragmentType
 
     init {
-        bottonNavigaionFragment = BottomNavigaionFragmentType.MAIL
+        bottonNavigaionFragment = BottomNavigationFragmentType.MAIL
     }
 
-    fun updateCurrentBottomNavigationFragmentType(currentTab: BottomNavigaionFragmentType){
+    fun updateCurrentBottomNavigationFragmentType(currentTab: BottomNavigationFragmentType){
         bottonNavigaionFragment = currentTab
     }
 
