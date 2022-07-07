@@ -16,7 +16,9 @@ import com.nimok97.mailproject.ui.mail.MailViewModel
 import com.nimok97.mailproject.ui.mail.adapter.MailRecyclerViewAdpater
 import com.nimok97.mailproject.ui.util.MailFragmentType
 import com.nimok97.mailproject.ui.util.MailFragmentTypeService
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PromotionsFragment : Fragment(), MailFragmentTypeService {
 
     private lateinit var binding: FragmentPromotionsBinding

@@ -13,7 +13,9 @@ import com.nimok97.mailproject.databinding.ActivityMainBinding
 import com.nimok97.mailproject.ui.mail.MailFragment
 import com.nimok97.mailproject.ui.setting.SettingFragment
 import com.nimok97.mailproject.ui.util.BottomNavigationFragmentType
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private val mailFragment by lazy { MailFragment() }

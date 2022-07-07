@@ -19,7 +19,9 @@ import com.nimok97.mailproject.ui.mail.type.TestFragment
 import com.nimok97.mailproject.ui.util.BottomNavigationFragmentType
 import com.nimok97.mailproject.ui.util.BottomNavigationFragmentTypeService
 import com.nimok97.mailproject.ui.util.MailFragmentType
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MailFragment : Fragment(), BottomNavigationFragmentTypeService {
 
     private lateinit var binding: FragmentMailBinding

@@ -11,7 +11,9 @@ import com.nimok97.mailproject.common.PrintLog
 import com.nimok97.mailproject.data.model.Information
 import com.nimok97.mailproject.databinding.ActivityInformationBinding
 import com.nimok97.mailproject.ui.MainActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class InformationActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityInformationBinding

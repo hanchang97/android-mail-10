@@ -10,10 +10,13 @@ import com.nimok97.mailproject.data.model.MailType
 import com.nimok97.mailproject.data.repository.MailDataSource
 import com.nimok97.mailproject.data.repository.MailRepository
 import com.nimok97.mailproject.ui.util.MailFragmentType
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 // TODO - repository, datasource di
-class MailViewModel(private val mailRepository: MailRepository = MailRepository(MailDataSource())) :
+@HiltViewModel
+class MailViewModel @Inject constructor(private val mailRepository: MailRepository) :
     ViewModel() {
 
     var mailTypeFragment: MailFragmentType
