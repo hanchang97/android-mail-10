@@ -92,7 +92,7 @@ class MailFragment : Fragment(), BottomNavigationFragmentTypeService {
         clearBackStack()
         changeFragment(primaryFragment)
         PrintLog.printLog("MailFragment / ${mailViewModel.mailTypeFragment}")
-        when (mailViewModel.mailTypeFragment) {
+        when (mailViewModel.mailTypeFragment) { // 회전 시 탭 유지 위함
             MailFragmentType.SOCIAL -> {
                 binding.navViewMail.menu.findItem(R.id.fragment_social).isChecked = true
                 changeFragmentExceptPrimary("Social", socialFragment)

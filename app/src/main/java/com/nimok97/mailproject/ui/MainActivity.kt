@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         initView()
     }
 
-    private fun initView() {
+    private fun initView() { // 화면 회전 시 탭 선택 상태도 유지를 해줘야 한다
         when (viewModel.bottonNavigaionFragment) {
             BottomNavigationFragmentType.MAIL -> {
                 changeFragment(mailFragment)
