@@ -50,6 +50,7 @@ class MailFragment : Fragment(), BottomNavigationFragmentTypeService {
         setAppBar()
         setNavView()
         initView()
+        getData()
     }
 
     override fun updateCurrentBottomNavigationFragmentType() {
@@ -108,6 +109,10 @@ class MailFragment : Fragment(), BottomNavigationFragmentTypeService {
         }
     }
 
+    private fun getData() {
+        mailViewModel.getMailData()
+    }
+
     fun backToPrimary() {
         clearBackStack()
         changeFragment(primaryFragment)
@@ -129,5 +134,12 @@ class MailFragment : Fragment(), BottomNavigationFragmentTypeService {
 
     private fun clearBackStack() {
         childFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+    }
+
+    override fun onDestroyView() {
+        // Primary Fragment 에서 회전하는 경우를 위해
+        if (childFragmentManager.backStackEntryCount < 1)
+            mailViewModel.updateCurrentMailType(MailFragmentType.PRIMARY)
+        super.onDestroyView()
     }
 }

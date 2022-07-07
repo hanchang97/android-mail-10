@@ -8,7 +8,7 @@ import androidx.core.widget.doOnTextChanged
 import androidx.databinding.DataBindingUtil
 import com.nimok97.mailproject.R
 import com.nimok97.mailproject.common.PrintLog
-import com.nimok97.mailproject.data.Information
+import com.nimok97.mailproject.data.model.Information
 import com.nimok97.mailproject.databinding.ActivityInformationBinding
 import com.nimok97.mailproject.ui.MainActivity
 
