@@ -14,7 +14,6 @@ import com.nimok97.mailproject.data.model.MailType
 import com.nimok97.mailproject.databinding.FragmentPrimaryBinding
 import com.nimok97.mailproject.ui.mail.MailViewModel
 import com.nimok97.mailproject.ui.mail.adapter.MailRecyclerViewAdpater
-import com.nimok97.mailproject.ui.util.MailFragmentType
 import com.nimok97.mailproject.ui.util.MailFragmentTypeService
 
 class PrimaryFragment : Fragment(), MailFragmentTypeService {

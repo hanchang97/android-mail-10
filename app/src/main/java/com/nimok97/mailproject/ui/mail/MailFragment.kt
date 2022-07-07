@@ -9,15 +9,15 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import com.nimok97.mailproject.R
-import com.nimok97.mailproject.ui.util.BottomNavigationFragmentType
 import com.nimok97.mailproject.common.PrintLog
-import com.nimok97.mailproject.ui.util.BottomNavigationFragmentTypeService
 import com.nimok97.mailproject.databinding.FragmentMailBinding
 import com.nimok97.mailproject.ui.MainViewModel
 import com.nimok97.mailproject.ui.mail.type.PrimaryFragment
 import com.nimok97.mailproject.ui.mail.type.PromotionsFragment
 import com.nimok97.mailproject.ui.mail.type.SocialFragment
 import com.nimok97.mailproject.ui.mail.type.TestFragment
+import com.nimok97.mailproject.ui.util.BottomNavigationFragmentType
+import com.nimok97.mailproject.ui.util.BottomNavigationFragmentTypeService
 import com.nimok97.mailproject.ui.util.MailFragmentType
 
 class MailFragment : Fragment(), BottomNavigationFragmentTypeService {
@@ -92,7 +92,7 @@ class MailFragment : Fragment(), BottomNavigationFragmentTypeService {
         clearBackStack()
         changeFragment(primaryFragment)
         PrintLog.printLog("MailFragment / ${mailViewModel.mailTypeFragment}")
-        when (mailViewModel.mailTypeFragment) {
+        when (mailViewModel.mailTypeFragment) { // 회전 시 탭 유지 위함
             MailFragmentType.SOCIAL -> {
                 binding.navViewMail.menu.findItem(R.id.fragment_social).isChecked = true
                 changeFragmentExceptPrimary("Social", socialFragment)

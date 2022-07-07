@@ -1,8 +1,8 @@
 package com.nimok97.mailproject.ui
 
 import androidx.lifecycle.ViewModel
-import com.nimok97.mailproject.ui.util.BottomNavigationFragmentType
 import com.nimok97.mailproject.data.model.Information
+import com.nimok97.mailproject.ui.util.BottomNavigationFragmentType
 
 class MainViewModel : ViewModel() {
 
