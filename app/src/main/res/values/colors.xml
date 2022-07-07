@@ -10,4 +10,9 @@
 
     <color name="main_bottomnavigationview_unselected">#747474</color>
     <color name="main_bottomnavigationview_selected">#015EFF</color>
+
+    <color name="mail_default_profile_background">#717171</color>
+    <color name="mail_title_text">#424242</color>
+    <color name="mail_sender_text">#000000</color>
+    <color name="mail_content_text">#7A7A7A</color>
 </resources>

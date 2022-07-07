@@ -22,8 +22,9 @@ import com.nimok97.mailproject.ui.setting.SettingFragment
 
 class MailFragment : Fragment(), SaveBottomNavigationTab {
 
-    private lateinit var binding : FragmentMailBinding
-    private val viewModel : MainViewModel by activityViewModels()
+    private lateinit var binding: FragmentMailBinding
+    private val viewModel: MainViewModel by activityViewModels()
+    private val mailViewModel: MailViewModel by activityViewModels()
 
     private val primaryFragment by lazy { PrimaryFragment() }
     private val socialFragment by lazy { SocialFragment() }
@@ -55,18 +56,18 @@ class MailFragment : Fragment(), SaveBottomNavigationTab {
         viewModel.updateCurrentTab(BottomNavigaionFragment.MAIL)
     }
 
-    private fun setAppBar(){
-        binding.contentMail.toolbarMail.setNavigationOnClickListener{
+    private fun setAppBar() {
+        binding.contentMail.toolbarMail.setNavigationOnClickListener {
             binding.drawerLayout.open()
         }
     }
 
-    private fun setNavView(){
+    private fun setNavView() {
         binding.navViewMail.menu.findItem(R.id.fragment_primary).isChecked = true
 
-        binding.navViewMail.setNavigationItemSelectedListener{ menuItem ->
+        binding.navViewMail.setNavigationItemSelectedListener { menuItem ->
             menuItem.isChecked = true
-            when(menuItem.itemId){
+            when (menuItem.itemId) {
                 R.id.fragment_primary -> {
                     clearBackStack()
                     changeFragment(primaryFragment)
@@ -86,7 +87,7 @@ class MailFragment : Fragment(), SaveBottomNavigationTab {
         }
     }
 
-    fun backToPrimary(){
+    fun backToPrimary() {
         clearBackStack()
         changeFragment(primaryFragment)
         binding.navViewMail.menu.findItem(R.id.fragment_primary).isChecked = true
@@ -97,7 +98,7 @@ class MailFragment : Fragment(), SaveBottomNavigationTab {
             .commit()
     }
 
-    private fun changeFragmentExceptPrimary(name: String, fragment: Fragment){
+    private fun changeFragmentExceptPrimary(name: String, fragment: Fragment) {
         childFragmentManager.popBackStackImmediate(name, FragmentManager.POP_BACK_STACK_INCLUSIVE)
         childFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainerView_mail, fragment, name)
