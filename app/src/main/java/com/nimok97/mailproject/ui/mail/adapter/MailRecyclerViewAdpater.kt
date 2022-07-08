@@ -25,14 +25,14 @@ class MailRecyclerViewAdpater :
 
                 binding.textViewProfile.text = mail.sender[0].toString()
                 binding.constraintLayoutProfile.setBackgroundColor(
-                    ContextCompat.getColor(binding.root.context, RandomColor.getRandomColor())
+                    ContextCompat.getColor(binding.root.context, mail.textProfileColor)
                 )
             }
             else{
                 binding.textViewProfile.isVisible = false
                 binding.imageViewDefaultProfile.isVisible = true
                 binding.constraintLayoutProfile.setBackgroundColor(
-                    ContextCompat.getColor(binding.root.context, R.color.mail_default_profile_background)
+                    ContextCompat.getColor(binding.root.context, mail.imageProfileColor)
                 )
             }
         }
