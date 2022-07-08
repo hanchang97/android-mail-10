@@ -10,7 +10,16 @@
         <item name="colorSecondaryVariant">@color/teal_200</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">#2EFDFD</item>
+        <item name="android:statusBarColor" tools:targetApi="l">#000000</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <color name="appBarTitleColor">#000000</color>
+    <color name="settingTextColor">#FFFFFF</color>
+    <color name="mailSenderTextColor">#FFFFFF</color>
+    <color name="mailTitleTextColor">#E6E6E6</color>
+    <color name="mailContentTextColor">#B3B3B3</color>
+
+    <color name="mainBottomNavigationviewSelected">#FFFFFF</color>
+    <color name="mainBottomNavigationviewUnselected">#9C9C9C</color>
 </resources>

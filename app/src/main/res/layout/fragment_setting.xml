@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="닉네임"
-            android:textColor="@color/black"
+            android:textColor="@color/settingTextColor"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -29,7 +29,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:enabled="false"
-            android:textColor="@color/black"
+            android:textColor="@color/settingTextColor"
             app:layout_constraintStart_toStartOf="@id/textView_nickname_description"
             app:layout_constraintTop_toBottomOf="@id/textView_nickname_description"
             app:layout_constraintWidth_percent="0.65" />
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="이메일"
-            android:textColor="@color/black"
+            android:textColor="@color/settingTextColor"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@id/editText_nickname"
             app:layout_constraintTop_toBottomOf="@id/editText_nickname" />
@@ -50,7 +50,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:enabled="false"
-            android:textColor="@color/black"
+            android:textColor="@color/settingTextColor"
             app:layout_constraintStart_toStartOf="@id/textView_email_description"
             app:layout_constraintTop_toBottomOf="@id/textView_email_description"
             app:layout_constraintWidth_percent="0.65" />
