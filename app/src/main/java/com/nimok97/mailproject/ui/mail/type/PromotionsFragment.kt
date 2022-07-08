@@ -58,7 +58,7 @@ class PromotionsFragment : Fragment(), MailFragmentTypeService {
 
     private fun observeData() {
         mailViewModel.mailDataList.observe(viewLifecycleOwner) {
-            val dataList = mailViewModel.getFilteredMialData(MailType.PROMOTIONS)
+            val dataList = mailViewModel.getFilteredMailData(MailType.PROMOTIONS)
             dataList?.let {
                 rvAdpater.submitList(it.toList())
             }

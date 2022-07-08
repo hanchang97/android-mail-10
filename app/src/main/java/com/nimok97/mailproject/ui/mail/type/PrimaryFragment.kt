@@ -57,7 +57,7 @@ class PrimaryFragment : Fragment(), MailFragmentTypeService {
 
     private fun observeData() {
         mailViewModel.mailDataList.observe(viewLifecycleOwner) {
-            val dataList = mailViewModel.getFilteredMialData(MailType.PRIMARY)
+            val dataList = mailViewModel.getFilteredMailData(MailType.PRIMARY)
             dataList?.let {
                 rvAdpater.submitList(it.toList())
             }

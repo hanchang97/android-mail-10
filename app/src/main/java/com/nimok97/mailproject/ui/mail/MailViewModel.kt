@@ -42,7 +42,7 @@ class MailViewModel @Inject constructor(private val mailRepository: MailReposito
         }
     }
 
-    fun getFilteredMialData(mailType: MailType): List<Mail>? {
+    fun getFilteredMailData(mailType: MailType): List<Mail>? {
         val filteredMailList = _mailDataList.value?.let {
             it.filter { it.mailType == mailType }.sortedBy { it.date }.reversed()
         }

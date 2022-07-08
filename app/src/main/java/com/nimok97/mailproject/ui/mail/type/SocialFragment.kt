@@ -58,7 +58,7 @@ class SocialFragment : Fragment(), MailFragmentTypeService {
 
     private fun observeData() {
         mailViewModel.mailDataList.observe(viewLifecycleOwner) {
-            val dataList = mailViewModel.getFilteredMialData(MailType.SOCIAL)
+            val dataList = mailViewModel.getFilteredMailData(MailType.SOCIAL)
             dataList?.let {
                 rvAdpater.submitList(it.toList())
             }
