@@ -147,5 +147,16 @@
             app:layout_constraintTop_toBottomOf="@id/textView_title"
             tools:text="Android에서 새로 로그인함 abc@gmail.com Android 기기에서 내" />
 
+        <TextView
+            android:id="@+id/textView_send_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{mail.date}"
+            android:textColor="@color/mailSendDateTextColor"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@id/gl_end"
+            app:layout_constraintTop_toBottomOf="@id/view_top"
+            tools:text="2022-07-07" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
