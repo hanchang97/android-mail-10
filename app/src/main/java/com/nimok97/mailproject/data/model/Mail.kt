@@ -6,5 +6,7 @@ data class Mail(
     val title: String,
     val content: String,
     val date: String,
-    val mailType: MailType
+    val mailType: MailType,
+    val imageProfileColor: Int,
+    val textProfileColor: Int
 )
