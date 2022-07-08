@@ -19,6 +19,7 @@
     <color name="mailSenderTextColor">#000000</color>
     <color name="mailTitleTextColor">#424242</color>
     <color name="mailContentTextColor">#7A7A7A</color>
+    <color name="mailSendDateTextColor">#494949</color>
 
     <color name="mainBottomNavigationviewSelected">#015EFF</color>
     <color name="mainBottomNavigationviewUnselected">#747474</color>
